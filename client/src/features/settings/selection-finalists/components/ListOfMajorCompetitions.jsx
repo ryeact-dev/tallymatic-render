@@ -124,7 +124,7 @@ export default function ListOfMajorCompetitions({
                                   <img
                                     className='size-10 object-cover rounded-full object-center'
                                     src={
-                                      import.meta.env.VITE_LOCAL_BASE_URL +
+                                      import.meta.env.VITE_API_URL +
                                       candidates[foundIndex]?.photo
                                     }
                                     alt='candidatePhoto'

@@ -68,7 +68,7 @@ export default function ListOfCandidates({
                 <figure>
                   <img
                     className='size-10 object-cover rounded-full object-center'
-                    src={import.meta.env.VITE_LOCAL_BASE_URL + candidate.photo}
+                    src={import.meta.env.VITE_API_URL + candidate.photo}
                     alt='candidatePhoto'
                   />
                 </figure>

@@ -16,11 +16,6 @@ const scoresheetRoute = require('./routes/scoresheet.route');
 const candidateRoute = require('./routes/candidate.route');
 
 const app = express();
-const whitelist = [
-  process.env.VITE_CLIENT_URL,
-  process.env.LOCAL_SERVER_URL,
-  process.env.WEB_SERVER_URL,
-];
 
 app.use(express.json());
 app.use('/uploads', express.static(__dirname + '/uploads'));
@@ -29,7 +24,7 @@ app.use(helmet());
 app.use(
   cors({
     credentials: true,
-    origin: 'https://tallymatic-client.vercel.app',
+    origin: process.env.CLIENT_URL,
   })
 );
 

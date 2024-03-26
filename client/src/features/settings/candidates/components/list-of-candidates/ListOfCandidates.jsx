@@ -17,13 +17,6 @@ const TABLE_HEADER = [
   { title: 'Options', className: 'rounded-tr-md' },
 ];
 
-{
-  /* <img
-                      className='size-10 object-cover rounded-full object-center'
-                      src={import.meta.env.VITE_LOCAL_BASE_URL + photo}
-                      alt='candidatePhoto'
-                    /> */
-}
 export default function ListOfCandidates({ candidates }) {
   return (
     <div className='rounded-md border mt-4'>

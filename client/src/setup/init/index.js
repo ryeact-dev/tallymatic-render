@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const initializeApp = () => {
   // Setting base URL for all API request via axios
-  axios.defaults.baseURL = import.meta.env.VITE_LOCAL_BASE_URL;
+  axios.defaults.baseURL = import.meta.env.VITE_API_URL;
   axios.defaults.withCredentials = true;
 
   // if (process.env.NODE_ENV === "production")

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Icon } from '@iconify-icon/react';
 
 export default function CandidatePhoto({ photoUrl, setPhotoUrl }) {
-  const imgSrc = photoUrl ? import.meta.env.VITE_LOCAL_BASE_URL + photoUrl : '';
+  const imgSrc = photoUrl ? import.meta.env.VITE_API_URL + photoUrl : '';
 
   const [base64Image, setBase64Image] = useState(imgSrc);
 
