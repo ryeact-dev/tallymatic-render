@@ -69,23 +69,6 @@ export function useLoginUser() {
     mutationFn: loginUser,
     onError: ({ response }) => ToastNotification('error', response.data),
     onSuccess: () => {
-      // if (data) {
-      //   const listOfCompetitions = data?.competitions.map(
-      //     (competition) => competition.id
-      //   );
-
-      // setCurrentUser({
-      //   userId: data.id,
-      //   fullName: data.fullName,
-      //   photo: data.photo,
-      //   judgeNumber: data.judgeNumber || 0,
-      //   role: data.role,
-      //   listOfCompetitions,
-      //   eventName: data.event ? data.event.name : 'all',
-      //   eventId: data.event ? data.event.id : 'none',
-      //   isLock: data.isLock,
-      // });
-      // }
       navigate('/app/dashboard', { replace: true });
     },
   });

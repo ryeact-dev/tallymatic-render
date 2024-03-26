@@ -29,9 +29,7 @@ async function getCurrentUser(req, res, next) {
     eventName: req.user.event.name,
   };
 
-  console.log(userInfo);
-
-  res.json(userInfo);
+  res.status(200).json(userInfo);
 }
 
 async function getAdminAndManagers(req, res, next) {
@@ -78,7 +76,7 @@ async function getJudgesAndTabulators(req, res, next) {
       };
     });
 
-    res.json(allUsers);
+    res.status(200).json(allUsers);
   } catch (err) {
     err.title = 'Fetch Judges and Tabulators';
     next(err);
@@ -111,7 +109,7 @@ async function getAllUsers(req, res, next) {
     return rest;
   });
 
-  res.json(allUsers);
+  res.status(200).json(allUsers);
 }
 
 async function addUser(req, res, next) {
@@ -159,7 +157,7 @@ async function addUser(req, res, next) {
       },
     });
 
-    res.json(newUser);
+    res.status(200).json(newUser);
   } catch (err) {
     // Prisma contraint error code
     if (err.code === 'P2002') {
@@ -216,7 +214,7 @@ async function updateUser(req, res, next) {
         },
       },
     }),
-      res.json();
+      res.status(200).json();
   } catch (err) {
     // Prisma contraint error code
     if (err.code === 'P2002') {
@@ -239,7 +237,7 @@ async function resetPassword(req, res, next) {
       },
     });
 
-    res.json();
+    res.status(200).json();
   } catch (err) {
     err.title = 'Reset password error';
     next(err);
@@ -290,7 +288,7 @@ async function deleteUser(req, res, next) {
 
     console.log(`${deletedUser.fullName} successfully removed from database`);
 
-    res.json();
+    res.status(200).json();
   } catch (err) {
     err.title = 'Delete User';
     next(err);
@@ -299,7 +297,7 @@ async function deleteUser(req, res, next) {
 
 async function logoutUser(req, res, next) {
   try {
-    res.clearCookie('tallymatic_token');
+    res.status(200).clearCookie('tallymatic_token');
     res.status(200).send('User logged out successfully.');
   } catch (err) {
     err.title = 'Add user error';
