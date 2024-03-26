@@ -29,6 +29,8 @@ async function getCurrentUser(req, res, next) {
     eventName: req.user.event.name,
   };
 
+  console.log(userInfo);
+
   res.json(userInfo);
 }
 
@@ -265,13 +267,12 @@ async function loginUser(req, res, next) {
 
     if (passOk) {
       const token = jwt.sign({ id: foundUser.id }, jwtSecret);
-      const { password: userPassword, ...rest } = foundUser;
 
       res.cookie('tallymatic_token', token, {
         maxAge: expirationDate,
         httpOnly: true,
       });
-      res.status(200).json(rest);
+      res.status(200).json();
     } else return res.status(401).send('Wrong password');
   } catch (err) {
     err.title = 'Login error';
