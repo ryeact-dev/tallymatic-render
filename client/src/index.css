@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 276.23 100% 98.25%;
+    --foreground: 276 56% 2%;
+    --muted: 246 27% 86%;
+    --muted-foreground: 246 6% 32%;
+    --popover: 276 48% 99%;
+    --popover-foreground: 276 56% 2%;
+    --card: 298.87 0% 100%;
+    --card-foreground: 276 56% 2%;
+    --border: 276 4% 92%;
+    --input: 276 4% 92%;
+    --primary: 276 60% 32%;
+    --primary-foreground: 276 60% 92%;
+    --secondary: 246 60% 32%;
+    --secondary-foreground: 246 60% 92%;
+    --accent: 306 60% 32%;
+    --accent-foreground: 306 60% 92%;
+    --destructive: 16 95% 43%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 276 60% 32%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 276 39% 3%;
+    --foreground: 276 22% 98%;
+    --muted: 246 27% 14%;
+    --muted-foreground: 246 6% 68%;
+    --popover: 276 39% 3%;
+    --popover-foreground: 276 22% 98%;
+    --card: 276 39% 3%;
+    --card-foreground: 276 22% 98%;
+    --border: 276 4% 13%;
+    --input: 276 4% 13%;
+    --primary: 276 60% 32%;
+    --primary-foreground: 276 60% 92%;
+    --secondary: 246 60% 32%;
+    --secondary-foreground: 246 60% 92%;
+    --accent: 306 60% 32%;
+    --accent-foreground: 306 60% 92%;
+    --destructive: 16 95% 58%;
+    --destructive-foreground: 0 0% 0%;
+    --ring: 276 60% 32%;
+  }
+}
+
+/* @layer base {
+  :root {
+    --background: 235 77.25% 96.62%;
+    --foreground: 235 70% 5%;
+    --muted: 205 39% 86%;
+    --muted-foreground: 205 0% 36%;
+    --popover: 235 57% 98%;
+    --popover-foreground: 235 70% 4%;
+    --card: 235 57% 98%;
+    --card-foreground: 235 70% 4%;
+    --border: 235 15% 94%;
+    --input: 61 11% 65%;
+    --primary: 235 83% 46%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 205 83% 46%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 265 83% 46%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 16 82% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 235 83% 46%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 235 26.32% 9.74%;
+    --foreground: 235 14% 99%;
+    --muted: 205 39% 14%;
+    --muted-foreground: 205 0% 64%;
+    --popover: 235 35% 3%;
+    --popover-foreground: 0 0% 100%;
+    --card: 235 35% 3%;
+    --card-foreground: 0 0% 100%;
+    --border: 235 15% 14%;
+    --input: 235 15% 14%;
+    --primary: 360 83% 46%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 205 83% 46%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 265 83% 46%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 16 82% 46%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 235 83% 46%;
+  }
+} */
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative w-fit md:block after:block after:content-[''] after:absolute after:h-[2px]
+           after:bg-accent dark:after:bg-accent after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition
+           after:duration-300 after:origin-left hidden;
+  }
+
+  .pass-indicator {
+    @apply before:absolute before:content-['']  before:h-full before:w-1/2 before:rounded before:transition-[width] before:duration-300 before:ease-in-out;
+  }
+
+  .scrollbar {
+    @apply float-left h-[300px] w-full mb-6 overflow-scroll;
+  }
+  .force-overflow {
+    @apply min-h-[450px];
+  }
+  #scroll-bar-design::-webkit-scrollbar {
+    @apply w-3 bg-slate-800;
+  }
+  #scroll-bar-design::-webkit-scrollbar-thumb {
+    @apply rounded-lg bg-slate-800 hover:bg-slate-800/50;
+  }
+}
+
+* {
+  font-family: 'Pathway Extreme', Helvetica, sans-serif;
+}
+
+@media print {
+  html,
+  body {
+    height: auto; /* Use 100% here to support printing more than a single page*/
+    margin: 5mm 5mm !important;
+    padding: 0 !important;
+    overflow: hidden;
+  }
+}

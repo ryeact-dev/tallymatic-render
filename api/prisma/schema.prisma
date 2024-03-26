@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String        @id @default(uuid())
+  username     String        @unique @db.VarChar(20)
+  password     String
+  email        String        @unique
+  role         String        @db.VarChar(20)
+  fullName     String
+  photo        String?
+  createAt     DateTime      @default(now())
+  isLock       String        @default("false")
+  judgeNumber  Int           @default(0)
+  eventId      String?
+  event        Event?        @relation(fields: [eventId], references: [id])
+  competitions Competition[] @relation("CompetitionToUser")
+  scoresheet   Scoresheet[]
+}
+
+model Event {
+  id           String        @id @default(uuid())
+  name         String        @unique
+  createAt     DateTime      @default(now())
+  candidates   Candidate[]
+  competitions Competition[]
+  user         User[]
+}
+
+model Competition {
+  id              String       @id @default(uuid())
+  name            String
+  number          Int
+  createdAt       DateTime     @default(now())
+  eventId         String
+  criteria        Json[]
+  multiplier      Decimal      @default(0) @db.Decimal(3, 1)
+  status          String       @default("false")
+  isFinalist      String       @default("false")
+  finalistList    String[]
+  judgesSubmitted String[]
+  finalists       Int          @default(0)
+  event           Event        @relation(fields: [eventId], references: [id])
+  scoresheet      Scoresheet[]
+  candidates      Candidate[]  @relation("CompetitionToCandidate")
+  users           User[]       @relation("CompetitionToUser")
+}
+
+model Scoresheet {
+  id            String      @id @default(uuid())
+  createdAt     DateTime    @default(now())
+  competitionId String
+  candidateId   String
+  userId        String
+  scores        Json[]
+  total         Decimal     @default(0) @db.Decimal(3, 1)
+  rank          Int         @default(0)
+  candidate     Candidate   @relation(fields: [candidateId], references: [id])
+  competition   Competition @relation(fields: [competitionId], references: [id])
+  user          User        @relation(fields: [userId], references: [id])
+}
+
+model Candidate {
+  id           String        @id @default(uuid())
+  fullName     String
+  number       Int
+  course       String
+  photo        String?
+  createdAt    DateTime      @default(now())
+  eventId      String
+  event        Event         @relation(fields: [eventId], references: [id])
+  scoresheet   Scoresheet[]
+  competitions Competition[] @relation("CompetitionToCandidate")
+}
