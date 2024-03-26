@@ -29,7 +29,7 @@ app.use(helmet());
 app.use(
   cors({
     credentials: true,
-    origin: whitelist,
+    origin: 'https://tallymatic-client.vercel.app',
   })
 );
 
