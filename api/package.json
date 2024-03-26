@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node ./index.js",
     "server": "nodemon ./index.js",
-    "build": "npm install && npx prisma db push && npx prisma generate"
+    "build": "npm install && npx prisma db push && npx prisma generate",
+    "vercel-build": "npm install && npx prisma db push && npx prisma generate"
   },
   "keywords": [],
   "author": "",
