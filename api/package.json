@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node ./index.js",
     "server": "nodemon ./index.js",
-    "vercel-build": "prisma db push && prisma generate && node ./index.js",
+    "build": "prisma db push && prisma generate",
     "postinstall": "prisma generate",
     "prebuild": "prisma generate"
   },
