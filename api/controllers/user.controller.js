@@ -18,8 +18,6 @@ async function getCurrentUser(req, res, next) {
     (competition) => competition.id
   );
 
-  console.log(req.user);
-
   let userInfo = {
     userId: req.user.id,
     fullName: req.user.fullName,
@@ -277,6 +275,7 @@ async function loginUser(req, res, next) {
       const token = jwt.sign({ id: foundUser.id }, jwtSecret);
 
       res.cookie('tallymatic_token', token, {
+        httpOnly: true,
         sameSite: 'none',
         secure: true,
       });
