@@ -49,7 +49,7 @@ export default function Dashboard() {
           </CardTitle>
           <CardDescription>{`as ${currentUser.role} for ${currentUser.eventName}`}</CardDescription>
         </div>
-        <div>If Admin, ComboBox here if event manager: no display</div>
+        <div></div>
       </CardHeader>
       <div className='flex gap-6 items-start'>
         {/* Event Candidates */}
