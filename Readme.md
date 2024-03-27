@@ -11,7 +11,7 @@ Currently, two official plugins are available:
 
 https://tallymatic-client.vercel.app/login
 
-## Tech Stack
+## 🚀 Technology
 
  - Vite + React
  - TanStack Query
@@ -36,7 +36,7 @@ https://tallymatic-client.vercel.app/login
 
 ## Download or Fork the repo and use the commands below
 
-All commands are run from the root of the project, from a terminal:
+## 🧞 All commands are run from the root of the project, from a terminal:
  
 | Command         | Action                                       |
 | :-------------- | :------------------------------------------- |
