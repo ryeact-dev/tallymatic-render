@@ -265,12 +265,13 @@ async function loginUser(req, res, next) {
 
     if (passOk) {
       const token = jwt.sign({ id: foundUser.id }, jwtSecret);
+      const { password: userPassword, ...rest } = foundUser;
 
       res.cookie('tallymatic_token', token, {
         maxAge: expirationDate,
         httpOnly: true,
       });
-      res.status(200).json();
+      res.status(200).json(rest);
     } else return res.status(401).send('Wrong password');
   } catch (err) {
     err.title = 'Login error';
