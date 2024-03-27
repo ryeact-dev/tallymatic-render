@@ -270,7 +270,7 @@ async function loginUser(req, res, next) {
         sameSite: 'none',
         secure: true,
       });
-      res.status(200).json();
+      res.status(200).json({ message: 'Cookie has been set' });
     } else return res.status(401).send('Wrong password');
   } catch (err) {
     err.title = 'Login error';
