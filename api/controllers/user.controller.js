@@ -306,7 +306,7 @@ async function deleteUser(req, res, next) {
 
 async function logoutUser(req, res, next) {
   try {
-    res.status(200).clearCookie('tallymatic_token');
+    res.clearCookie('tallymatic_token');
     res.status(200).send('User logged out successfully.');
   } catch (err) {
     err.title = 'Add user error';
