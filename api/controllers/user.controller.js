@@ -270,6 +270,8 @@ async function loginUser(req, res, next) {
       res.cookie('tallymatic_token', token, {
         maxAge: expirationDate,
         httpOnly: true,
+        sameSite: 'none',
+        secure: true,
       });
       res.status(200).json(rest);
     } else return res.status(401).send('Wrong password');
