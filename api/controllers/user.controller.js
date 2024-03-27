@@ -18,16 +18,26 @@ async function getCurrentUser(req, res, next) {
     (competition) => competition.id
   );
 
-  const userInfo = {
+  console.log(req.user);
+
+  let userInfo = {
     userId: req.user.id,
     fullName: req.user.fullName,
     role: req.user.role,
     isLock: req.user.isLock,
     judgeNumber: req.user.judgeNumber,
     listOfCompetitions,
-    eventId: req.user.event.id,
-    eventName: req.user.event.name,
+    eventId: null,
+    eventName: null,
   };
+
+  if (req.user.role !== 'Admin') {
+    userInfo = {
+      ...userInfo,
+      eventId: req.user.event.id,
+      eventName: req.user.event.name,
+    };
+  }
 
   res.status(200).json(userInfo);
 }

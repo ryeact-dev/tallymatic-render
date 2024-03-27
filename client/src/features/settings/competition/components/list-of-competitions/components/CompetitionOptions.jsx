@@ -45,15 +45,6 @@ export default function CompetitionOptions({ competition }) {
           <PenBox className='w-5 h-5' />
         </Button>
       </TooltipContainer>
-      <TooltipContainer content='Delete' className={'bg-destructive'}>
-        <Button
-          onClick={() => deleteCompetition(competition.id)}
-          variant='ghost'
-          className='h-8 w-8 p-0 hover:bg-destructive'
-        >
-          <Trash className='w-5 h-5' />
-        </Button>
-      </TooltipContainer>
     </>
   );
 }
