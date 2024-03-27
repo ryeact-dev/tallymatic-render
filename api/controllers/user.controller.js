@@ -267,8 +267,6 @@ async function loginUser(req, res, next) {
       const token = jwt.sign({ id: foundUser.id }, jwtSecret);
 
       res.cookie('tallymatic_token', token, {
-        maxAge: expirationDate,
-        httpOnly: true,
         sameSite: 'none',
         secure: true,
       });
