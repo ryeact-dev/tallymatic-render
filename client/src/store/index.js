@@ -36,35 +36,35 @@ export const competitionStore = create((set) => ({
 }));
 
 export const currentUserStore = create(
-  // persist(
-  (set) => ({
-    currentUser: null,
-    setCurrentUser: ({
-      userId,
-      isLock,
-      fullName,
-      judgeNumber,
-      role,
-      listOfCompetitions,
-      eventName,
-      eventId,
-    }) =>
-      set(() => ({
-        currentUser: {
-          userId,
-          isLock,
-          fullName,
-          judgeNumber,
-          role,
-          listOfCompetitions,
-          eventName,
-          eventId,
-        },
-      })),
-  })
-  //   {
-  //     name: 'tallymatic__user', // name of the item in the storage (must be unique)
-  //     storage: createJSONStorage(() => localStorage), // (optional) by default, 'localStorage' is used
-  //   }
-  // )
+  persist(
+    (set) => ({
+      currentUser: null,
+      setCurrentUser: ({
+        userId,
+        isLock,
+        fullName,
+        judgeNumber,
+        role,
+        listOfCompetitions,
+        eventName,
+        eventId,
+      }) =>
+        set(() => ({
+          currentUser: {
+            userId,
+            isLock,
+            fullName,
+            judgeNumber,
+            role,
+            listOfCompetitions,
+            eventName,
+            eventId,
+          },
+        })),
+    }),
+    {
+      name: 'tallymatic__user', // name of the item in the storage (must be unique)
+      storage: createJSONStorage(() => localStorage), // (optional) by default, 'localStorage' is used
+    }
+  )
 );

@@ -9,6 +9,7 @@ import {
   resetPassword,
 } from '@/api/user.api';
 import { ToastNotification } from '@/common/toast/Toast';
+import { currentUserStore } from '@/store';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useMatches, useNavigate } from 'react-router-dom';
 
@@ -64,11 +65,30 @@ export function useGetJudgesTabulators() {
 // Login user
 export function useLoginUser() {
   const navigate = useNavigate();
+  const setCurrentUser = currentUserStore((state) => state.setCurrentUser);
 
   return useMutation({
     mutationFn: loginUser,
     onError: ({ response }) => ToastNotification('error', response.data),
-    onSuccess: () => {
+    onSuccess: ({ data }) => {
+      if (data) {
+        const listOfCompetitions = data?.competitions.map(
+          (competition) => competition.id
+        );
+
+        setCurrentUser({
+          userId: data.id,
+          fullName: data.fullName,
+          photo: data.photo,
+          judgeNumber: data.judgeNumber || 0,
+          role: data.role,
+          listOfCompetitions,
+          eventName: data.event ? data.event.name : 'all',
+          eventId: data.event ? data.event.id : 'none',
+          isLock: data.isLock,
+        });
+      }
+
       navigate('/app/dashboard', { replace: true });
     },
   });

@@ -5,10 +5,10 @@ import { useGetAllCompetitionsByEvent } from '@/hooks/competition';
 import { useSearchParams } from 'react-router-dom';
 import EventResults from './components/event-results/EventResults';
 import MemoedEventCandidates from './components/event-candidates/EventCandidates';
-import { useGetCurrentUser } from '@/hooks/user';
+import { currentUserStore } from '@/store';
 
 export default function Dashboard() {
-  const currentUser = useGetCurrentUser();
+  const currentUser = currentUserStore((state) => state.currentUser);
   const eventId = currentUser.eventId;
 
   const [searchParams, setSearchParams] = useSearchParams({
