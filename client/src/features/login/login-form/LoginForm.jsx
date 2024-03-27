@@ -47,7 +47,7 @@ export default function LoginForm() {
             )}
           </div>
         </div>
-        <Button type='submit'>
+        <Button type='submit' disabled={loginUserMutation.isPending}>
           {loginUserMutation.isPending ? 'Submitting...' : 'Submit'}
         </Button>
       </CardContent>
