@@ -20,7 +20,7 @@ export function useGetCurrentUser() {
 }
 
 export function useGetJudgesStatus({ userId, fetchTrigger, userRole }) {
-  const intveral = userRole === 'judge' ? 3000 : 86400000;
+  const intveral = userRole === 'judge' ? 1000 : 86400000;
 
   return useQuery({
     queryKey: ['judge-status', userId, fetchTrigger],

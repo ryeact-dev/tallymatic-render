@@ -71,6 +71,11 @@ export default function SidebarSubmenu({ submenu, name, icon, currentUser }) {
     );
   }
 
+  // Close the drawer when the user click on the backdrop
+  const close = () => {
+    document.getElementById('drawer-toggle').click();
+  };
+
   return (
     <div className={`py-1 flex-col bg-transparent cursor-default flex-1`}>
       {/** Route header */}
@@ -83,6 +88,7 @@ export default function SidebarSubmenu({ submenu, name, icon, currentUser }) {
           return (
             <li key={k}>
               <NavLink
+                onClick={close}
                 end
                 to={m.path}
                 className={({ isActive }) =>

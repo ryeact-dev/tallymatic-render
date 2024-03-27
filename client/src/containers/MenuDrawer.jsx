@@ -3,9 +3,9 @@ import { Menu } from 'lucide-react';
 
 export default function MenuDrawer() {
   // Close the drawer when the user click on the backdrop
-  function close() {
+  const close = () => {
     document.getElementById('drawer-toggle').click();
-  }
+  };
 
   return (
     <div className='flex'>
