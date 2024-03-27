@@ -1,5 +1,34 @@
-## Tallymatic
+# React + Vite
 
-a rank-base tabulation app
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Under development
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Demo
+
+https://tallymatic-client.vercel.app/login
+
+## Tech Stack
+
+ - Vite + React
+ - TanStack Query
+ - Zustand
+ - JWT
+ - Postgresql
+ - Prisma DB
+ - Firebase OAuth
+ - Tailwind
+ - Shadcn
+
+## Download or Fork the repo and use the commands below
+
+All commands are run from the root of the project, from a terminal:
+ 
+| Command         | Action                                       |
+| :-------------- | :------------------------------------------- |
+| `npm install`   | Installs dependencies                        |
+| `npm run dev`   | Starts local dev server at `localhost:5173`  |
+| `npm run build` | Build your production site to `./dist/`      |
